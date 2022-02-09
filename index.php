@@ -22,14 +22,17 @@
 
 // TODO Votre code ici bas.
 
+require "connPDO.php";
+
 try {
-    $maConnexion = ........
+    $maConnexion = new connPDO();
+    $test = $maConnexion->conn();
 
     $request = "
-        Ma super requête SQL pour créer une base de données.
+        CREATE DATABASE intro_sql
     ";
 
-    $maConnexion->une super méthode pour exécuter ma requete
+    $test->exec($request);
 
     echo "La base de données intro_sql a bien été créée.";
 }
@@ -38,14 +41,4 @@ catch (PDOException $exception) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+//$request = "DROP DATABASE intro_sql";
